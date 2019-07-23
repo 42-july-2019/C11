@@ -81,12 +81,12 @@ int			check_params(int argc, char **argv)
 	char		op;
 	int			length;
 
+	if (argc != 4)
+		return(1);
 	length = 0;
 	while(argv[2][length])
 		length++;
 	op = *(argv[2]);
-	if (argc != 4)
-		return(1);
 	if (((op != '+') && (op != '-') && (op != '/') && (op != '*') && (op != '%')) || (length != 1))
 		return (2);
 	if (*(argv[2]) == '/' && ft_atoi(argv[3]) == 0)
