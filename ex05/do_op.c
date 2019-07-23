@@ -6,10 +6,9 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 19:35:08 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/23 20:32:44 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/23 21:41:59 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
 #include <unistd.h>
 #include "ft.h"
@@ -18,7 +17,7 @@ void		ft_putnbr(long int nb)
 {
 	char	c;
 
-	if(nb < 0)
+	if (nb < 0)
 	{
 		write(1, "-", 1);
 		nb = -nb;
@@ -57,7 +56,7 @@ long int	ft_atoi(char *str)
 
 long int	do_op(long int val_a, char op, long int val_b)
 {
-	long int	(*array[5])(long int, long int); 
+	long int	(*array[5])(long int, long int);
 
 	array[0] = ft_add;
 	array[1] = ft_substract;
@@ -82,16 +81,17 @@ int			check_params(int argc, char **argv)
 	int			length;
 
 	if (argc != 4)
-		return(1);
+		return (1);
 	length = 0;
-	while(argv[2][length])
+	while (argv[2][length])
 		length++;
 	op = *(argv[2]);
-	if (((op != '+') && (op != '-') && (op != '/') && (op != '*') && (op != '%')) || (length != 1))
+	if (((op != '+') && (op != '-') && (op != '/') &&
+				(op != '*') && (op != '%')) || (length != 1))
 		return (2);
-	if (*(argv[2]) == '/' && ft_atoi(argv[3]) == 0)
+	if (op == '/' && ft_atoi(argv[3]) == 0)
 		return (3);
-	if (*(argv[2]) == '%' && ft_atoi(argv[3]) == 0)
+	if (op == '%' && ft_atoi(argv[3]) == 0)
 		return (4);
 	return (0);
 }
@@ -103,7 +103,7 @@ int			main(int argc, char **argv)
 
 	error_case = check_params(argc, argv);
 	if (error_case == 1)
-		return(0);
+		return (0);
 	else if (error_case == 2)
 		write(1, "0", 1);
 	else if (error_case == 3)
@@ -116,5 +116,5 @@ int			main(int argc, char **argv)
 		ft_putnbr(result);
 	}
 	write(1, "\n", 1);
-	return(0);
+	return (0);
 }
