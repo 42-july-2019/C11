@@ -6,16 +6,16 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 18:54:00 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/23 19:31:41 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/25 00:39:51 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_sort(int *tab, int length, int (*f)(int,int))
+int		ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	int			i;
 	long int	prev_comp;
 	long int	curr_comp;
-	
+
 	if (length < 0)
 		return (0);
 	if (length < 3)
