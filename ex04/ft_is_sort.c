@@ -16,6 +16,8 @@ int		ft_is_sort(int *tab, int length, int (*f)(int,int))
 	long int	prev_comp;
 	long int	curr_comp;
 	
+	if (length < 0)
+		return (0);
 	if (length < 3)
 		return (1);
 	prev_comp = (long)(*f)(tab[0], tab[1]);
